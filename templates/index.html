@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online School</title>
+</head>
+<body>
+
+{% if lesson_list %}
+    <hr>
+    {% for lesson in lesson_list %}
+        <h2>{{ lesson.title }}</h2>
+        <h2>Teacher: {{ lesson.teacher }}</h2>
+        <h3>Students:</h3>
+        {% for student in lesson.student_set.all %}
+            <h4> - {{ student }}</h4>
+        {% endfor %}
+        <hr>
+    {% endfor %}
+{% else %}
+    <h1>No lessons</h1>
+{% endif %}
+
+</body>
+</html>
